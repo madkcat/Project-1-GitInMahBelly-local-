@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>COOKIN | Home</title>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,400i,600" rel="stylesheet">
+  <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <!-- Font Awesome -->
+  <script src="https://use.fontawesome.com/70d78677ed.js"></script>
+
+  <!-- auth0  -->
+    <!-- Latest patch release (recommended for production) -->
+    <script src="https://cdn.auth0.com/js/auth0/9.0.1/auth0.min.js"></script>
+<!-- firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase-auth.js"></script>
+
+</head>
+
+<body>
+
+  <!-- HEADER  -->
+  <div class="parallax-container">
+    <div class="section">
+      <div class="parallax">
+        <img src="images/headerimg-01.png" alt="Unsplashed background img 1">
+      </div>
+
+<!-- LOGIN -->
+    <div class="row">
+      <div class="col s12 right-align">
+        <span class="flow-text">
+          <form id="btnLogin" class="btn btn-secondary">Login</form>
+          <form id="btnLogout" class="btn btn-secondary">Logout</form>
+        </span>
+    </div>
+
+<!-- HEADER TEXT -->
+      <div class="col s12 m2 l2"></div>
+        <div class="col s12 m8 l8">
+          <h3 class="header center header1" style="padding-bottom: 2%;">GET</h3>
+          <h1 class="header center header2">COOKIN</h1>
+          <h3 class="header center header1" style="padding-top: 2%;">GOOD LOOKIN</h3></div>
+        <div class="col s12 m2 l2"></div>
+    </div>
+      
+
+      <!-- NAVIGATION -->
+      <div class="row">
+        <div class="col s12 m2 l2"></div>
+        <div class="col s12 m8 l8">
+          <nav class="white center-align" role="navigation" id="top-nav">
+            <div class="nav-links center-align">
+              <ul class="center">
+                <li>
+                  <a href="index.html" class="top-nav-links">Home</a></li>
+                <li><a href="about.html" class="top-nav-links">About</a></li>
+                <li><a href="myrecipes.html" class="top-nav-links">My Recipes</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="col s12 m2 l2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION TWO -->
+  <div class="container section">
+    <div class="row">
+      <div class="col l6 m6 s12" id="section2" style="padding-top: 5%; padding-bottom: 5%;">
+        <p class="center" style="text-transform: uppercase; color: #353328;letter-spacing: 5pt; font-size: 15pt; text-align: center; font-weight: bold; line-height: 50pt;">Using the ingredients<br/>you have at home...</p></div>
+        <div class="col l6 m6 s12" id="section2" style="padding-top: 5%; padding-bottom: 5%;">
+        <p class="center" style="text-transform: uppercase; color: #b8bc84;letter-spacing: 5pt;font-size: 15pt; text-align: center; font-weight: bold; line-height: 50pt;">Minimize food waste<br/>without crompromising taste.</p>
+      </div>
+    </div>
+  </div>
+
+    <!-- SECOND IMAGE BANNER -->
+    <!-- SECOND IMAGE -->
+  <div id="index-banner" class="parallax-container valign-wrapper">
+      <div class="section no-pad-bot"> 
+        <div class="parallax"><img src="images/cookingbanner.jpg" alt="Unsplashed background img 1"></div>
+        <p class="center" style="color: #f3f3ea; letter-spacing: 5pt; font-size: 22pt; text-align: center; line-height: 50pt; padding-left: 10%; padding-right: 10%;">You learn to cook so that you don't have to be a slave to recipes.<br>You get what's in season and you know what to do with it.</p>
+        <p class="center" style="font-family: Lora; text-transform: uppercase; font-size: 13pt; font-weight: bold; letter-spacing: 5pt; color: #b8bc84; padding-top: 2%;">Julia Childs</p>
+      </div>
+    </div>   
+
+<!-- SEARCH BAR -->
+<div class="row">
+  <div class="col s12" style="padding-top:5%;"><h6 style="letter-spacing: 2pt; font-size: 20pt; color: #b8bc84;">SEARCH INGREDIENTS</h6></div>
+  <div class="col s12 valign-middle">
+    <form class="search-container">
+      <input type="text" id="search-bar" placeholder="What ingredients do you have?">
+      <img class="search-icon search-button" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png">
+    </form>
+    <div class="col s4"></div>
+  </div>
+
+    <!-- SEARCHED INGREDIENTS BUTTONS -->
+      <div class="col l2 m2 s2"></div>
+      <div class="searched-ingredients center-align col l8 m8 s8" style="padding-bottom: 1%;"></div>
+      <div class="col l2 m2 s2"></div>
+    </div>
+
+  <!-- RECIPES HEADER-->
+  <div class="row">
+    <div class="l4 m4 s4"></div>
+  </div>
+
+<!-- RECIPES DISPLAY -->
+<div class="row">
+  <div class="col l2 m2 s12"></div>
+    <div style="text-align: center;" id="top-recipes" class="recipes col l8 m8 s12"></div>
+  </div>
+
+  <!-- Modal Trigger -->
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4 id="recipe-name"></h4>
+      <h5 id="recipe-body"></h5>
+      <a href="#" target="_blank" id="recipe-url">FULL RECIPE</a>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+  <div class="col l2 m2 s12"></div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l3 m6 s12">
+          <p class="footer-title">Follow</p>
+          <p class="grey-text text-lighten-4">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-twitter fa-stack-1x"></i>
+            </span>
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-facebook fa-stack-1x"></i>
+            </span>
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-instagram fa-stack-1x"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="col l3 m6 s12">
+          <p class="footer-title">Contact</p>
+          <ul>
+            <li>hi@belly.com</li>
+          </ul>
+        </div>
+
+        <div class="col l3 m6 s12">
+          <p class="footer-title">Support</p>
+          <ul>
+            <li>FAQ</li>
+            <li>Help Desk</li>
+            <li>Status</li>
+          </ul>
+        </div>
+
+        <div class="col l3 m6 s12">
+          <p class="footer-title">Account</p>
+          <ul>
+            <li>Login</li>
+            <li>Logout</li>
+            <li>
+              <a class="white-text" href="myrecipes.html">My Account</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <div class="container">Copyright 2018</div>
+    </div>
+  </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="assets/javascript/instance.js"></script>
+  <script src="assets/javascript/app.js"></script>
+  <script src="assets/javascript/logic.js"></script>
+  <script src="assets/javascript/auth.js"></script>
+
+</body>
+</html>
+
